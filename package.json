@@ -2,6 +2,7 @@
   "name": "credbooth-billpayment-ui",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://eikcalb.github.io/credbooth-ui",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
