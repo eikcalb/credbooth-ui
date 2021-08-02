@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/credbooth-ui/static/css/main.092a2e2d.chunk.css",
-    "main.js": "/credbooth-ui/static/js/main.59328bf5.chunk.js",
-    "main.js.map": "/credbooth-ui/static/js/main.59328bf5.chunk.js.map",
+    "main.css": "/credbooth-ui/static/css/main.0436bf46.chunk.css",
+    "main.js": "/credbooth-ui/static/js/main.f524ea49.chunk.js",
+    "main.js.map": "/credbooth-ui/static/js/main.f524ea49.chunk.js.map",
     "runtime-main.js": "/credbooth-ui/static/js/runtime-main.956d18e8.js",
     "runtime-main.js.map": "/credbooth-ui/static/js/runtime-main.956d18e8.js.map",
     "static/css/2.a49750c1.chunk.css": "/credbooth-ui/static/css/2.a49750c1.chunk.css",
@@ -12,14 +12,14 @@
     "static/js/3.a79b68b8.chunk.js.map": "/credbooth-ui/static/js/3.a79b68b8.chunk.js.map",
     "index.html": "/credbooth-ui/index.html",
     "static/css/2.a49750c1.chunk.css.map": "/credbooth-ui/static/css/2.a49750c1.chunk.css.map",
-    "static/css/main.092a2e2d.chunk.css.map": "/credbooth-ui/static/css/main.092a2e2d.chunk.css.map",
+    "static/css/main.0436bf46.chunk.css.map": "/credbooth-ui/static/css/main.0436bf46.chunk.css.map",
     "static/js/2.bae0c1d8.chunk.js.LICENSE.txt": "/credbooth-ui/static/js/2.bae0c1d8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.956d18e8.js",
     "static/css/2.a49750c1.chunk.css",
     "static/js/2.bae0c1d8.chunk.js",
-    "static/css/main.092a2e2d.chunk.css",
-    "static/js/main.59328bf5.chunk.js"
+    "static/css/main.0436bf46.chunk.css",
+    "static/js/main.f524ea49.chunk.js"
   ]
 }
