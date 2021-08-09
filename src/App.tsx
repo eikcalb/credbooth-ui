@@ -10,7 +10,6 @@ interface ITransactionInitiate {
 	productID: number
 	amount: number
 	customerid: string
-	phone: string
 }
 
 interface IResponse {
@@ -34,7 +33,7 @@ function App() {
 	const [providers, setProviders] = useState<any[]>([])
 	const [products, setProducts] = useState<any[]>([])
 	const [loading, setLoading] = useState(false)
-	const [form, setForm] = useState({ phone: '', customerid: '', amount: '' })
+	const [form, setForm] = useState({ customerid: '', amount: '' })
 
 	const timer = useRef<undefined | number>()
 
@@ -88,6 +87,7 @@ function App() {
 		} catch (e) {
 			alert("\u26A0 " + e.message || "Failed to initiate transaction")
 			console.error(e)
+			throw e
 		}
 	}
 
@@ -232,7 +232,7 @@ function App() {
 														setLoading(false)
 														return
 													}
-													setForm({ ...form, amount: `${product.amount/100}` })
+													setForm({ ...form, amount: product.amount })
 													setSelectedProduct(product)
 													setLoading(false)
 												}}>
@@ -254,8 +254,8 @@ function App() {
 													setLoading(false)
 													return
 												}
-												initiateTransaction({ ...form, phone: `+234${form.phone}`, amount: parseInt(form.amount) * 100, type: selectedCategory, productID: (selectedProduct as any).id })
-													.then((id) => {
+												initiateTransaction({ ...form, amount: parseFloat(form.amount), type: selectedCategory, productID: (selectedProduct as any).id })
+													.then(({ id }) => {
 														setRequestRef(id)
 														setStep('confirm')
 													})
@@ -276,17 +276,6 @@ function App() {
 														<input required className="input" type="number" value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} placeholder="Amount to recharge" />
 													</p>
 												</div>
-
-												<div className="field has-addons">
-													<p className="control">
-														<a className="button is-static">
-															+234
-														</a>
-													</p>
-													<p className="control is-expanded">
-														<input required className="input" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Contact phone number" />
-													</p>
-												</div>
 												<p className='control'>
 													<button type='submit' className='button is-primary'>Submit</button>
 												</p>
@@ -299,8 +288,8 @@ function App() {
 												e.stopPropagation()
 
 												setLoading(true)
-												initiateTransaction({ ...form, phone: `+234${form.phone}`, amount: parseInt(form.amount) * 100, type: selectedCategory as any, productID: (selectedProduct as any).id })
-													.then((id) => {
+												initiateTransaction({ ...form, amount: parseFloat(form.amount), type: selectedCategory as any, productID: (selectedProduct as any).id })
+													.then(({ id, customerName }) => {
 														setRequestRef(id)
 														setStep('confirm')
 													})
@@ -318,18 +307,7 @@ function App() {
 														</a>
 													</p>
 													<p className="control is-expanded">
-														<input required className="input" type="number" value={form.amount} disabled={parseInt((selectedProduct as any)?.amount || "0") > 0} onChange={(e) => setForm({ ...form, amount: e.target.value })} placeholder="Amount to pay" />
-													</p>
-												</div>
-
-												<div className="field has-addons">
-													<p className="control">
-														<a className="button is-static">
-															+234
-														</a>
-													</p>
-													<p className="control is-expanded">
-														<input required className="input" type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="Contact phone number" />
+														<input required className="input" type="number" value={form.amount} readOnly={parseInt((selectedProduct as any)?.amount || "0") > 0} onChange={(e) => setForm({ ...form, amount: e.target.value })} placeholder="Amount to pay" />
 													</p>
 												</div>
 												<p className='control'>
